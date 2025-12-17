@@ -62,7 +62,7 @@ class AnymalCRoughCfg( LeggedRobotCfg ):
         stiffness = {'HAA': 80., 'HFE': 80., 'KFE': 80.}  # [N*m/rad]
         damping = {'HAA': 2., 'HFE': 2., 'KFE': 2.}     # [N*m*s/rad]
         # action scale: target angle = actionScale * action + defaultAngle
-        action_scale = 0.5
+        action_scale = 0.5 * 0.7
         # decimation: Number of control action updates @ sim DT per policy DT
         decimation = 4
         use_actuator_network = True
