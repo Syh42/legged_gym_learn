@@ -60,8 +60,7 @@ class AnymalCRoughCfg( LeggedRobotCfg ):
     class control( LeggedRobotCfg.control ):
         # PD Drive parameters:
         stiffness = {'HAA': 80., 'HFE': 80., 'KFE': 80.}  # [N*m/rad]
-        DAMPING_SCALE = 1.4
-        damping = {'HAA': 2. * DAMPING_SCALE, 'HFE': 2. * DAMPING_SCALE, 'KFE': 2. * DAMPING_SCALE}     # [N*m*s/rad]
+        damping = {'HAA': 2. * 1.4, 'HFE': 2. * 1.4, 'KFE': 2. * 1.2}     # [N*m*s/rad]
         # action scale: target angle = actionScale * action + defaultAngle
         action_scale = 0.5 * 0.7
         # decimation: Number of control action updates @ sim DT per policy DT
