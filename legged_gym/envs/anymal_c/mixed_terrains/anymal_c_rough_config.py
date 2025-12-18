@@ -66,7 +66,7 @@ class AnymalCRoughCfg( LeggedRobotCfg ):
         action_scale = 0.5 * 0.7
         # decimation: Number of control action updates @ sim DT per policy DT
         decimation = 4
-        use_actuator_network = True
+        use_actuator_network = False
         actuator_net_file = "{LEGGED_GYM_ROOT_DIR}/resources/actuator_nets/anydrive_v3_lstm.pt"
 
     class asset( LeggedRobotCfg.asset ):
