@@ -37,6 +37,9 @@ class AnymalCRoughCfg( LeggedRobotCfg ):
 
     class terrain( LeggedRobotCfg.terrain ):
         mesh_type = 'trimesh'
+        terrain_proportions = [0.25, 0.25, 0.25, 0.25]
+        max_init_terrain_level = 2
+        curriculum = True
 
     class init_state( LeggedRobotCfg.init_state ):
         pos = [0.0, 0.0, 0.6] # x,y,z [m]
@@ -85,6 +88,7 @@ class AnymalCRoughCfg( LeggedRobotCfg ):
         max_contact_force = 500.
         only_positive_rewards = True
         class scales( LeggedRobotCfg.rewards.scales ):
+            feet_air_time = 1.1
             pass
 
 class AnymalCRoughCfgPPO( LeggedRobotCfgPPO ):
