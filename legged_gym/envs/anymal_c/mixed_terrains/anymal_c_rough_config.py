@@ -88,7 +88,7 @@ class AnymalCRoughCfg( LeggedRobotCfg ):
         max_contact_force = 500.
         only_positive_rewards = True
         class scales( LeggedRobotCfg.rewards.scales ):
-            feet_air_time = 1.1
+            feet_air_time = 1.8
             pass
 
 class AnymalCRoughCfgPPO( LeggedRobotCfgPPO ):
