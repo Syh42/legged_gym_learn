@@ -89,7 +89,7 @@ class AnymalCRoughCfg( LeggedRobotCfg ):
         only_positive_rewards = True
         class scales( LeggedRobotCfg.rewards.scales ):
             feet_air_time = 1.0
-            dof_acc = -2.5e-6
+            dof_acc = -5e-6
             pass
 
 class AnymalCRoughCfgPPO( LeggedRobotCfgPPO ):
