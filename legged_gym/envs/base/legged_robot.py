@@ -888,13 +888,10 @@ class LeggedRobot(BaseTask):
         first_contact = (self.feet_air_time > 0.) * contact_filt
         self.feet_air_time += self.dt
 
-        # ---- NEW: foot height gate ----
-        feet_pos = self.rigid_body_states[:, self.feet_indices, 0:3]
-        foot_height = feet_pos[:, :, 2]
-        clearance = 0.06  # 6 cm, suitable for stairs
-        high_enough = foot_height > clearance
+        min_air_time = 0.25
+        valid_swing = self.feet_air_time > min_air_time
 
-        rew_airTime = torch.sum((self.feet_air_time - 0.5) * first_contact * high_enough, dim=1) # reward only on first contact with the ground
+        rew_airTime = torch.sum(valid_swing * first_contact, dim=1) # reward only on first contact with the ground
         rew_airTime *= torch.norm(self.commands[:, :2], dim=1) > 0.1 #no reward for zero command
         self.feet_air_time *= ~contact_filt
         return rew_airTime
